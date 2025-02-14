@@ -1,0 +1,35 @@
+﻿<Window x:Class="DimensionamentoEletrico.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DimensionamentoEletrico"
+        mc:Ignorable="d"
+        Title="Dimensionamento Elétrico" Height="600" Width="800">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/th.jpeg" Stretch="UniformToFill">
+
+            </ImageBrush>
+        </Grid.Background>
+        <Button x:Name="buttonAmbiente" Grid.Column="1" Content="Cadastrar Ambiente" Margin="75,25,75,25" Grid.Row="1" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Cadastrar novo ambiente, por exemplo: casa, apartamento, loja etc..."/>
+        <Button x:Name="buttonEquipamento" Grid.Column="2" Content="Cadastrar Equipamento" Margin="75,25,75,25" Grid.Row="1" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Cadastrar equipamento, por exemplo: geladeira, microondas, ventilador de teto, etc..."/>
+        <Button x:Name="buttonDimensionar" Grid.Column="1" Content="Dimensionar" Margin="75,25,75,25" Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Cadastrar novo ambiente, por exemplo: cozinha, quarto, banheiro, etc..."/>
+    </Grid>
+</Window>

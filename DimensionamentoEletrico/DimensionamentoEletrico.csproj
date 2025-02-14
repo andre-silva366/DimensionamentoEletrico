@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UserSecretsId>ad74c26f-2d24-45e6-966f-a23b18344d54</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="th.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="th.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+  </ItemGroup>
+
+</Project>

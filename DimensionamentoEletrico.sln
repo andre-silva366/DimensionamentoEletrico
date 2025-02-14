@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DimensionamentoEletrico", "DimensionamentoEletrico\DimensionamentoEletrico.csproj", "{13CA4F28-D1D3-40EB-A4AA-333636D79EF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13CA4F28-D1D3-40EB-A4AA-333636D79EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CA4F28-D1D3-40EB-A4AA-333636D79EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CA4F28-D1D3-40EB-A4AA-333636D79EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CA4F28-D1D3-40EB-A4AA-333636D79EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {900E16D7-737E-484B-8673-C999755F57AA}
+	EndGlobalSection
+EndGlobal
