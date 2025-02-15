@@ -11,14 +11,20 @@
 
   <ItemGroup>
     <None Remove="th.jpeg" />
+    <None Remove="Views\Insert\eqpamentos.webp" />
+    <None Remove="Views\Insert\equipamento.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="th.jpeg" />
+    <Resource Include="Views\Insert\eqpamentos.webp" />
+    <Resource Include="Views\Insert\equipamento.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 
 </Project>

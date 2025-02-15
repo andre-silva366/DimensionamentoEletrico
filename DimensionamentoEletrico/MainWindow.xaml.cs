@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using DimensionamentoEletrico.Views.Insert;
+using System.Windows;
 
 namespace DimensionamentoEletrico;
 
@@ -10,5 +11,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+    }
+
+    private void buttonCadastrarEquipamento_Click(object sender, RoutedEventArgs e)
+    {
+        CadastroEquipamento telaCadastroEquipamento = new CadastroEquipamento();
+        telaCadastroEquipamento.ShowDialog();
     }
 }
