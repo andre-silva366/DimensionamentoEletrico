@@ -13,30 +13,26 @@ class EquipamentoRepository : IRepository<Equipamento>
     public EquipamentoRepository()
     {
 
-        _connection = new SqlConnection("Server=ANDRE-SILVA366\\SQLEXPRESS;Database=DimensionamentoEletrico;Trusted_Connection=True");
+        _connection = new SqlConnection("Server=ANDRE-SILVA366\\SQLEXPRESS;Database=DimensionamentoEletrico;Trusted_Connection=True;TrustServerCertificate=True");
 
     }
     public void Add(Equipamento equipamento)
     {
         try
         {
-            string query = "INSERT INTO Equipamento (Nome, Quantidade, Tensao, Potencia, DataCriacao) VALUES (@Nome, @Quantidade, @Tensao, @Potencia, @DataCriacao)";
+            string query = "INSERT INTO Equipamento (Nome, Tensao, Potencia, DataCriacao) VALUES (@Nome, @Tensao, @Potencia, @DataCriacao)";
             _connection.Open();
 
             var parameters = new
             {
                 equipamento.Nome,
-                equipamento.Quantidade,
                 equipamento.Tensao,
                 equipamento.Potencia,
                 equipamento.DataCriacao
             };
 
-            var row = _connection.Execute(query, parameters);
-            if (row > 0)
-            {
-                MessageBox.Show("Equipamento cadastrado com sucesso!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            _connection.Execute(query, parameters);
+            
         }
         catch (Exception ex)
         {
