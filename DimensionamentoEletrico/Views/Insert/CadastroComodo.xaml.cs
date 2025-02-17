@@ -17,45 +17,42 @@ using System.Windows.Shapes;
 namespace DimensionamentoEletrico.Views.Insert
 {
     /// <summary>
-    /// Lógica interna para CadastroEquipamento.xaml
+    /// Lógica interna para CadastroComodo.xaml
     /// </summary>
-    public partial class CadastroEquipamento : Window
+    public partial class CadastroComodo : Window
     {
-        
-        public CadastroEquipamento()
+        public CadastroComodo()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void buttonCadastrarEquipamento_Click(object sender, RoutedEventArgs e)
+        private void buttonCadastrarComodo_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var nomeEquipamento = textBoxNomeEquipamento.Text;
+                var nomeComodo = textBoxNomeComodo.Text;
 
-                if(string.IsNullOrEmpty(nomeEquipamento) || nomeEquipamento.Length < 2)
+                if (string.IsNullOrEmpty(nomeComodo) || nomeComodo.Length < 2)
                 {
                     MessageBox.Show("Preencha o campo nome!", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    
+
                 }
                 else
                 {
-                    Equipamento equipamento = new Equipamento
+                    Comodo comodo = new Comodo
                     {
-                        Nome = nomeEquipamento
+                        Nome = nomeComodo
                     };
 
-                    EquipamentoRepository equipamentoRepository = new();
-                    equipamentoRepository.Add(equipamento);
-                }               
-                
+                    ComodoRepository comodoRepository = new();
+                    comodoRepository.Add(comodo);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
     }
 }

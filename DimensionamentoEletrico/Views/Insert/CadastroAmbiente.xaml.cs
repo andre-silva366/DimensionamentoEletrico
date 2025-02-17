@@ -17,45 +17,42 @@ using System.Windows.Shapes;
 namespace DimensionamentoEletrico.Views.Insert
 {
     /// <summary>
-    /// Lógica interna para CadastroEquipamento.xaml
+    /// Lógica interna para CadastroAmbiente.xaml
     /// </summary>
-    public partial class CadastroEquipamento : Window
+    public partial class CadastroAmbiente : Window
     {
-        
-        public CadastroEquipamento()
+        public CadastroAmbiente()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void buttonCadastrarEquipamento_Click(object sender, RoutedEventArgs e)
+        private void buttonCadastrarAmbiente_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var nomeEquipamento = textBoxNomeEquipamento.Text;
+                var nomeAmbiente = textBoxNomeAmbiente.Text;
 
-                if(string.IsNullOrEmpty(nomeEquipamento) || nomeEquipamento.Length < 2)
+                if (string.IsNullOrEmpty(nomeAmbiente) || nomeAmbiente.Length < 2)
                 {
                     MessageBox.Show("Preencha o campo nome!", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    
+
                 }
                 else
                 {
-                    Equipamento equipamento = new Equipamento
+                    Ambiente ambiente= new Ambiente
                     {
-                        Nome = nomeEquipamento
+                        Nome = nomeAmbiente
                     };
 
-                    EquipamentoRepository equipamentoRepository = new();
-                    equipamentoRepository.Add(equipamento);
-                }               
-                
+                    AmbienteRepository ambienteRepository = new();
+                    ambienteRepository.Add(ambiente);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
     }
 }

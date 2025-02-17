@@ -4,6 +4,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using System.Windows;
+using DimensionamentoEletrico.Views.Insert;
 
 namespace DimensionamentoEletrico.Repositories.Implements;
 
@@ -20,19 +21,26 @@ class EquipamentoRepository : IRepository<Equipamento>
     {
         try
         {
-            string query = "INSERT INTO Equipamento (Nome, Tensao, Potencia, DataCriacao) VALUES (@Nome, @Tensao, @Potencia, @DataCriacao)";
+            string query = "INSERT INTO Equipamento (Nome) VALUES (@Nome)";
             _connection.Open();
 
-            var parameters = new
+            var parameter = new
             {
-                equipamento.Nome,
-                equipamento.Tensao,
-                equipamento.Potencia,
-                equipamento.DataCriacao
+                equipamento.Nome
             };
 
-            _connection.Execute(query, parameters);
-            
+            var row = _connection.Execute(query, parameter);
+            if (row == 1)
+            {
+                MessageBox.Show("Equipamento cadastrado com sucesso!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+                CadastroEquipamento cadastroEquipamento = new();
+                cadastroEquipamento.textBoxNomeEquipamento.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar equipamento!", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
         catch (Exception ex)
         {
@@ -56,11 +64,6 @@ class EquipamentoRepository : IRepository<Equipamento>
     }
 
     public Equipamento GetById(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Save()
     {
         throw new NotImplementedException();
     }
