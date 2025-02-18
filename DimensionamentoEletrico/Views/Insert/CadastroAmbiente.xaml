@@ -24,13 +24,26 @@
         </Grid.Background>
         <TextBox x:Name="textBoxNomeAmbiente" Grid.Column="1" Margin="20,60,20,10" 
           Grid.Row="2" TextWrapping="Wrap" FontSize="14" VerticalContentAlignment="Center" 
-          HorizontalContentAlignment="Center" MaxLength="50" MaxLines="2"/>
-        <Label Grid.Column="1" Content="Nome" Margin="20,10,20,70" Grid.Row="2" 
+          HorizontalContentAlignment="Center" MaxLength="50" MaxLines="2" Visibility="Hidden"/>
+        <Label x:Name="labelNome" Grid.Column="1" Content="Nome" Margin="20,10,20,70" Grid.Row="2" 
         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" 
-        FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold"/>
+        FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" Visibility="Hidden"/>
+
+        <ComboBox x:Name="comboBoxSelecionaAcao" Grid.Column="1" Margin="0,60,0,10" 
+  Grid.Row="1" FontSize="14" VerticalContentAlignment="Center" 
+  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="156" SelectionChanged="comboBoxSelecionaAcao_SelectionChanged" >
+            <ComboBoxItem Cursor="Hand" Content="Cadastrar"/>
+            <ComboBoxItem Cursor="Hand" Content="Atualizar"/>
+            <ComboBoxItem Cursor="Hand" Content="Excluir"/>
+            <ComboBoxItem Cursor="Hand" Content="Listar todos"/>
+        </ComboBox>
+
+        <Label x:Name="labelSelecionaAcao" Grid.Column="1" Content=" Selecione a ação " Margin="0,10,0,70" Grid.Row="1" 
+ HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" 
+ FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Center" Width="155"/>
 
         <Button x:Name="buttonCadastrarAmbiente" Grid.Column="1" Content="Cadastrar" Margin="10,40,10,25" 
          Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" 
-         ToolTip="Clique para salvar." Click="buttonCadastrarAmbiente_Click" />
+         ToolTip="Clique para salvar." Click="buttonCadastrarAmbiente_Click" Visibility="Hidden" />
     </Grid>
 </Window>
