@@ -1,18 +1,7 @@
 ﻿using DimensionamentoEletrico.Models;
 using DimensionamentoEletrico.Repositories.Implements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DimensionamentoEletrico.Views.Insert
 {
@@ -21,10 +10,13 @@ namespace DimensionamentoEletrico.Views.Insert
     /// </summary>
     public partial class CadastroComodo : Window
     {
+        private List<string> comodos = new();
         public CadastroComodo()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            var comodoRepository = new ComodoRepository();
+            comodos = comodoRepository.GetAll().Select(a => a.Nome).ToList();
         }
 
         private void buttonCadastrarComodo_Click(object sender, RoutedEventArgs e)
@@ -69,19 +61,74 @@ namespace DimensionamentoEletrico.Views.Insert
             }
             else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 1)
             {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                comboBoxSelecionaComodoAtualizar.ItemsSource = comodos;
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoComodo.Visibility = Visibility.Hidden;
+                labelNomeComodoAtualizar.Visibility = Visibility.Visible;
+                textBoxComodoAtualizar.Visibility = Visibility.Visible;
+                buttonAtualizarComodo.Visibility = Visibility.Visible;
+                comboBoxSelecionaComodoAtualizar.Visibility = Visibility.Visible;
+                labelSelecionaComodoAtualizar.Visibility = Visibility.Visible;
+                Title = "Atualizar Comodo";
             }
             else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 2)
             {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                comboBoxSelecionaComodoExcluir.ItemsSource = comodos;
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoComodo.Visibility = Visibility.Hidden;
+                labelSelecionaComodoExcluir.Visibility = Visibility.Visible;
+                comboBoxSelecionaComodoExcluir.Visibility = Visibility.Visible;
+                buttonExcluirComodo.Visibility = Visibility.Visible;
+                Title = "Excluir Comodo";
             }
             else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 3)
             {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                listBoxComodo.ItemsSource = comodos;
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoComodo.Visibility = Visibility.Hidden;
+                listBoxComodo.Visibility = Visibility.Visible;
+                Title = "Listar Todos os Comodos";
             }
-            else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 4)
+            
+        }
+
+        private void buttonAtualizarComodo_Click(object sender, RoutedEventArgs e)
+        {
+            try
             {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                var nomeAntigoComodo = comboBoxSelecionaComodoAtualizar.Text;
+                var nomeAtualizadoComodo = textBoxComodoAtualizar.Text;
+                if (string.IsNullOrEmpty(nomeAntigoComodo) || string.IsNullOrEmpty(nomeAtualizadoComodo) || nomeAtualizadoComodo.Length < 3)
+                {
+                    MessageBox.Show("Preencha os campos corretamente!", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                ComodoRepository comodoRepository = new();
+                var Comodo = comodoRepository.GetByName(nomeAntigoComodo);
+                comodoRepository.Update(Comodo, nomeAtualizadoComodo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void buttonExcluirComodo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var nomeComodo = comboBoxSelecionaComodoExcluir.Text;
+                if (string.IsNullOrEmpty(nomeComodo))
+                {
+                    MessageBox.Show("Selecione o Comodo corretamente!", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                ComodoRepository comodoRepository = new();
+                comodoRepository.Delete(nomeComodo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

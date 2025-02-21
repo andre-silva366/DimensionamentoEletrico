@@ -3,8 +3,8 @@
 interface IRepository<T> where T : class
 {    
     void Add(T entity);
-    void Update(T entity);
-    void Delete(T entity);
+    void Update(T entity, string name);
+    void Delete(string name);
     IEnumerable<T> GetAll();
-    T GetById(int id);
+    T GetByName(string name);
 }

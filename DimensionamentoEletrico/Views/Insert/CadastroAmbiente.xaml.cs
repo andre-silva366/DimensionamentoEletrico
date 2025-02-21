@@ -1,18 +1,8 @@
 ﻿using DimensionamentoEletrico.Models;
 using DimensionamentoEletrico.Repositories.Implements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DimensionamentoEletrico.Views.Insert
 {
@@ -21,10 +11,13 @@ namespace DimensionamentoEletrico.Views.Insert
     /// </summary>
     public partial class CadastroAmbiente : Window
     {
+        private List<string> ambientes = new();
         public CadastroAmbiente()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            var ambienteRepository = new AmbienteRepository();
+            ambientes = ambienteRepository.GetAll().Select(a => a.Nome).ToList() ;
         }
 
         private void buttonCadastrarAmbiente_Click(object sender, RoutedEventArgs e)
@@ -57,6 +50,7 @@ namespace DimensionamentoEletrico.Views.Insert
 
         private void comboBoxSelecionaAcao_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Cadastrar ------------------------------------------------------
             if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 0)
             {
                 labelSelecionaAcao.Visibility = Visibility.Hidden;
@@ -66,8 +60,10 @@ namespace DimensionamentoEletrico.Views.Insert
                 buttonCadastrarAmbiente.Visibility = Visibility.Visible;                
                 Title = "Cadastrar Ambiente";
             }
+            // Atualizar ------------------------------------------------------
             else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 1)
             {
+                comboBoxSelecionaAmbienteAtualizar.ItemsSource = ambientes;
                 labelSelecionaAcao.Visibility = Visibility.Hidden;
                 comboBoxSelecionaAcaoAmbiente.Visibility = Visibility.Hidden;
                 labelNomeAmbienteAtualizar.Visibility = Visibility.Visible;
@@ -77,23 +73,67 @@ namespace DimensionamentoEletrico.Views.Insert
                 labelSelecionaAmbienteAtualizar.Visibility = Visibility.Visible;
                 Title = "Atualizar Ambiente";
             }
+            // Excluir ------------------------------------------------------
             else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 2)
             {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                comboBoxSelecionaAmbienteExcluir.ItemsSource = ambientes;
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoAmbiente.Visibility = Visibility.Hidden;
+                labelSelecionaAmbienteExcluir.Visibility = Visibility.Visible;
+                comboBoxSelecionaAmbienteExcluir.Visibility = Visibility.Visible;
+                buttonExcluirAmbiente.Visibility = Visibility.Visible;
+                Title = "Excluir Ambiente";
             }
+            // Listar todos ------------------------------------------------------
             else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 3)
             {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                listBoxAmbiente.ItemsSource = ambientes;
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoAmbiente.Visibility = Visibility.Hidden;
+                listBoxAmbiente.Visibility = Visibility.Visible;
+                Title = "Listar Todos os Ambientes";
             }
-            else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 4)
-            {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            
         }
 
         private void buttonAtualizarAmbiente_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var nomeAntigoAmbiente = comboBoxSelecionaAmbienteAtualizar.Text;
+                var nomeAtualizadoAmbiente = textBoxAmbienteAtualizar.Text;
+                if(string.IsNullOrEmpty(nomeAntigoAmbiente) || string.IsNullOrEmpty(nomeAtualizadoAmbiente) || nomeAtualizadoAmbiente.Length < 3)
+                {
+                    MessageBox.Show("Preencha os campos corretamente!", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;                    
+                }
+                AmbienteRepository ambienteRepository = new();
+                var ambiente = ambienteRepository.GetByName(nomeAntigoAmbiente);
+                ambienteRepository.Update(ambiente,nomeAtualizadoAmbiente);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
+        private void buttonExcluirAmbiente_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var nomeAmbiente = comboBoxSelecionaAmbienteExcluir.Text;
+                if (string.IsNullOrEmpty(nomeAmbiente) )
+                {
+                    MessageBox.Show("Selecione o ambiente corretamente!", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                AmbienteRepository ambienteRepository = new();
+                ambienteRepository.Delete(nomeAmbiente);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

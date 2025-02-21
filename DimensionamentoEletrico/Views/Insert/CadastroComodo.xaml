@@ -55,5 +55,44 @@ FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeigh
                 Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" Visibility="Hidden"
                 ToolTip="Clique para cadastrar caso os dados acima estejam corretos." Click="buttonCadastrarComodo_Click"/>
 
+        <!-- Atualizar -->
+        <Label x:Name="labelSelecionaComodoAtualizar" Grid.Column="2" Content=" Selecione " Margin="10" Grid.Row="1" 
+    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" Visibility="Hidden"
+    FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Center" Width="155"/>
+
+        <ComboBox x:Name="comboBoxSelecionaComodoAtualizar" Grid.Column="2" Margin="10" 
+Grid.Row="2" FontSize="14" VerticalContentAlignment="Center" 
+HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="155"  Height="51.3466666666667" Visibility="Hidden"  />
+
+        <TextBox x:Name="textBoxComodoAtualizar" Grid.Column="2" Margin="10" 
+Grid.Row="4" TextWrapping="Wrap" FontSize="14" VerticalContentAlignment="Center" 
+HorizontalContentAlignment="Center" MaxLength="50" MaxLines="2" HorizontalAlignment="Center" Width="156" Visibility="Hidden"   />
+
+        <Label x:Name="labelNomeComodoAtualizar" Grid.Column="2" Content="Novo nome" Margin="10" Grid.Row="3" 
+HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" 
+FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" Visibility="Hidden"   />
+
+        <Button x:Name="buttonAtualizarComodo" Grid.Column="2" Content="Atualizar" Margin="10" 
+Grid.Row="5" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" 
+ToolTip="Clique para atualizar." Visibility="Hidden" Click="buttonAtualizarComodo_Click"  />
+
+        <!-- Excluir -->
+
+        <Label x:Name="labelSelecionaComodoExcluir" Grid.Column="2" Content=" Selecione " Margin="10" Grid.Row="1" 
+    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" Visibility="Hidden" 
+    FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Center" Width="155"/>
+
+        <ComboBox x:Name="comboBoxSelecionaComodoExcluir" Grid.Column="2" Margin="10" 
+        Grid.Row="2" FontSize="14" VerticalContentAlignment="Center" 
+        HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="155"  Height="51.3466666666667" Visibility="Hidden" />
+
+        <Button x:Name="buttonExcluirComodo" Grid.Column="2" Content="Excluir" Margin="10" 
+Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" 
+ToolTip="Clique para atualizar."  Visibility="Hidden" Click="buttonExcluirComodo_Click" />
+
+
+        <!-- Listar todos -->
+        <ListBox x:Name="listBoxComodo" Grid.Column="2" Grid.Row="2" Grid.RowSpan="4" Padding="5,5,5,5" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden"/>
+
     </Grid>
 </Window>

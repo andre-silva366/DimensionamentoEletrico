@@ -42,23 +42,102 @@ class AmbienteRepository : IRepository<Ambiente>
         }
     }
 
-    public void Delete(Ambiente entity)
+    public void Update(Ambiente ambiente, string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "UPDATE Ambiente SET Nome = @NomeAtualizado  WHERE Nome = @Nome";
+            _connection.Open();            
+            var parameters = new 
+            {
+                ambiente.Nome,
+                NomeAtualizado = nome
+            };
+            var row = _connection.Execute(query, parameters);
+            if (row == 1)
+            {
+                MessageBox.Show("Ambiente atualizado com sucesso!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar ambiente!", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public IEnumerable<Ambiente> GetAll()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "SELECT Nome FROM Ambiente;";
+            _connection.Open();
+            return _connection.Query<Ambiente>(query).ToList();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public Ambiente GetById(int id)
+    public void Delete(string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Ambiente WHERE Nome = @Nome";
+            _connection.Open();
+            var parameter = new { Nome = nome };
+            var row = _connection.Execute(query, parameter);
+            if (row == 1)
+            {
+                MessageBox.Show("Ambiente deletado com sucesso!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao deletar ambiente!", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        catch(Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
+    }    
+
+    public Ambiente GetByName(string nome)
+    {
+        try
+        {
+            string query = "SELECT Nome FROM Ambiente WHERE Nome = @Nome";
+            _connection.Open();
+            var parameter = new { Nome = nome };
+            return _connection.QueryFirst<Ambiente>(query, parameter);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public void Update(Ambiente entity)
-    {
-        throw new NotImplementedException();
-    }
+    
 }

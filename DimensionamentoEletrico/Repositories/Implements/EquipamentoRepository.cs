@@ -53,23 +53,100 @@ class EquipamentoRepository : IRepository<Equipamento>
         }
     }
 
-    public void Delete(Equipamento entity)
+    public void Delete(string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "DELETE FROM Equipamento WHERE Nome = @Nome";
+            _connection.Open();
+            var parameter = new { Nome = nome };
+            var row = _connection.Execute(query, parameter);
+            if (row == 1)
+            {
+                MessageBox.Show("Equipamento deletado com sucesso!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao deletar equipamento!", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
     public IEnumerable<Equipamento> GetAll()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "SELECT Nome FROM Equipamento;";
+            _connection.Open();
+            return _connection.Query<Equipamento>(query).ToList();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public Equipamento GetById(int id)
+    public Equipamento GetByName(string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            string query = "SELECT Nome FROM Equipamento WHERE Nome = @Nome";
+            _connection.Open();
+            var parameter = new { Nome = nome };
+            return _connection.QueryFirst<Equipamento>(query, parameter);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            return null;
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 
-    public void Update(Equipamento entity)
+    public void Update(Equipamento equipamento, string nome)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = "UPDATE Equipamento SET Nome = @NomeAtualizado  WHERE Nome = @Nome";
+            _connection.Open();
+            var parameters = new
+            {
+                equipamento.Nome,
+                NomeAtualizado = nome
+            };
+            var row = _connection.Execute(query, parameters);
+            if (row == 1)
+            {
+                MessageBox.Show("Equipamento atualizado com sucesso!", "SUCESSO", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar equipamento!", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            _connection.Close();
+        }
     }
 }
