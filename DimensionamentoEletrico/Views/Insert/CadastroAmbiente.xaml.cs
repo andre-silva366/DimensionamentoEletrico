@@ -57,31 +57,43 @@ namespace DimensionamentoEletrico.Views.Insert
 
         private void comboBoxSelecionaAcao_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(comboBoxSelecionaAcao.SelectedIndex == 0)
+            if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 0)
             {
                 labelSelecionaAcao.Visibility = Visibility.Hidden;
-                comboBoxSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoAmbiente.Visibility = Visibility.Hidden;
                 labelNome.Visibility = Visibility.Visible;
                 textBoxNomeAmbiente.Visibility = Visibility.Visible;
-                buttonCadastrarAmbiente.Visibility = Visibility.Visible;
+                buttonCadastrarAmbiente.Visibility = Visibility.Visible;                
+                Title = "Cadastrar Ambiente";
+            }
+            else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 1)
+            {
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoAmbiente.Visibility = Visibility.Hidden;
+                labelNomeAmbienteAtualizar.Visibility = Visibility.Visible;
+                textBoxAmbienteAtualizar.Visibility = Visibility.Visible;
+                buttonAtualizarAmbiente.Visibility = Visibility.Visible;
+                comboBoxSelecionaAmbienteAtualizar.Visibility = Visibility.Visible;
+                labelSelecionaAmbienteAtualizar.Visibility = Visibility.Visible;
+                Title = "Atualizar Ambiente";
+            }
+            else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 2)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 3)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (comboBoxSelecionaAcaoAmbiente.SelectedIndex == 4)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
 
-            }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 1)
-            {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 2)
-            {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 3)
-            {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 4)
-            {
-                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+        private void buttonAtualizarAmbiente_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

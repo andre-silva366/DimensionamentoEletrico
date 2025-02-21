@@ -59,28 +59,29 @@ namespace DimensionamentoEletrico.Views.Insert
 
         private void comboBoxSelecionaAcao_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBoxSelecionaAcao.SelectedIndex == 0)
+            if (comboBoxSelecionaAcaoEquipamento.SelectedIndex == 0)
             {
-                labelSelecionaAcao.Visibility = Visibility.Hidden;
-                comboBoxSelecionaAcao.Visibility = Visibility.Hidden;
-                labelNome.Visibility = Visibility.Visible;
+                labelSelecionaAcaoEquipamento.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoEquipamento.Visibility = Visibility.Hidden;
+                labelNomeEquipamento.Visibility = Visibility.Visible;
                 textBoxNomeEquipamento.Visibility = Visibility.Visible;
                 buttonCadastrarEquipamento.Visibility = Visibility.Visible;
+                Title = "Cadastro de Equipamento";
 
             }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 1)
+            else if (comboBoxSelecionaAcaoEquipamento.SelectedIndex == 1)
             {
                 MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 2)
+            else if (comboBoxSelecionaAcaoEquipamento.SelectedIndex == 2)
             {
                 MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 3)
+            else if (comboBoxSelecionaAcaoEquipamento.SelectedIndex == 3)
             {
                 MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else if (comboBoxSelecionaAcao.SelectedIndex == 4)
+            else if (comboBoxSelecionaAcaoEquipamento.SelectedIndex == 4)
             {
                 MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
             }

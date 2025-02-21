@@ -54,5 +54,35 @@ namespace DimensionamentoEletrico.Views.Insert
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "ERRO", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void comboBoxSelecionaAcaoComodo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBoxSelecionaAcaoComodo.SelectedIndex == 0)
+            {
+                labelSelecionaAcao.Visibility = Visibility.Hidden;
+                comboBoxSelecionaAcaoComodo.Visibility = Visibility.Hidden;
+                labelNomeComodo.Visibility = Visibility.Visible;
+                textBoxNomeComodo.Visibility = Visibility.Visible;
+                buttonCadastrarComodo.Visibility = Visibility.Visible;
+                Title = "Cadastro de Cômodo";
+
+            }
+            else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 1)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 2)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 3)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (comboBoxSelecionaAcaoComodo.SelectedIndex == 4)
+            {
+                MessageBox.Show("Essa opção ainda não foi implementada", "ATENÇÃO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }

@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DimensionamentoEletrico.Views.Insert"
         mc:Ignorable="d"
-        Title="CadastroComodo" Height="400" Width="540">
+        Title="Comodo" Height="400" Width="540">
    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
@@ -18,20 +20,40 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/Views/Insert/cozinha.png"/>
         </Grid.Background>
-        <TextBox x:Name="textBoxNomeComodo" Grid.Column="1" Margin="20,60,20,10" 
-  Grid.Row="2" TextWrapping="Wrap" FontSize="14" VerticalContentAlignment="Center" 
-  HorizontalContentAlignment="Center" MaxLength="50" MaxLines="2"/>
-        <Label Grid.Column="1" Content="Nome" Margin="20,10,20,70" Grid.Row="2" 
-HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" 
-FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold"/>
+       
 
-        <Button x:Name="buttonCadastrarComodo" Grid.Column="1" Content="Cadastrar" Margin="10,40,10,25" 
- Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" 
- ToolTip="Clique para salvar." Click="buttonCadastrarComodo_Click"  />
+        <ComboBox x:Name="comboBoxSelecionaAcaoComodo" Grid.Column="2" Margin="10" 
+  Grid.Row="2" FontSize="14" VerticalContentAlignment="Center" 
+  HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="138" SelectionChanged="comboBoxSelecionaAcaoComodo_SelectionChanged" >
+            <ComboBoxItem Cursor="Hand" Content="Cadastrar"/>
+            <ComboBoxItem Cursor="Hand" Content="Atualizar"/>
+            <ComboBoxItem Cursor="Hand" Content="Excluir"/>
+            <ComboBoxItem Cursor="Hand" Content="Listar todos"/>
+        </ComboBox>
+        <Label x:Name="labelSelecionaAcao" Grid.Column="2" Content=" Selecione a ação " Margin="10" Grid.Row="1" 
+HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" 
+FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+
+        <!-- Cadastrar -->
+        <TextBox x:Name="textBoxNomeComodo" Grid.Column="2" Margin="10" 
+          Grid.Row="2" TextWrapping="Wrap" FontSize="14" VerticalContentAlignment="Center" 
+          HorizontalContentAlignment="Center" MaxLength="50" MaxLines="2" Visibility="Hidden"  />
+
+        <Label x:Name="labelNomeComodo" Grid.Column="2" Content="Nome" Margin="10" Grid.Row="1" 
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,0,0" 
+        FontSize="16" FontFamily="Arial" Background="White" Foreground="Black" FontWeight="SemiBold" Visibility="Hidden"  />
+        
+        <Button x:Name="buttonCadastrarComodo" Grid.Column="2" Content="Cadastrar" Margin="10" 
+                Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" Visibility="Hidden"
+                ToolTip="Clique para cadastrar caso os dados acima estejam corretos." Click="buttonCadastrarComodo_Click"/>
+
     </Grid>
 </Window>
