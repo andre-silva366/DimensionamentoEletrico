@@ -2,9 +2,8 @@
 using DimensionamentoEletrico.Repositories.Implements;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
-namespace DimensionamentoEletrico.Views.Insert
+namespace DimensionamentoEletrico.Views.Windows
 {
     /// <summary>
     /// Lógica interna para CadastroAmbiente.xaml

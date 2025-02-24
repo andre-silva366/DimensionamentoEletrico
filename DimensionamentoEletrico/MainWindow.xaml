@@ -31,7 +31,7 @@
         </Grid.Background>
         <Button x:Name="buttonAmbiente" Grid.Column="2" Content="Ambiente" Margin="10,10,10,10" Grid.Row="1" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Cadastrar novo ambiente, por exemplo: casa, apartamento, loja etc..." Click="buttonAmbiente_Click"/>
         <Button x:Name="buttonCadastrarEquipamento" Grid.Column="2" Content="Equipamento" Margin="10,10,10,10" Grid.Row="2" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Cadastrar equipamento, por exemplo: geladeira, microondas, ventilador de teto, etc..." Click="buttonCadastrarEquipamento_Click"/>
-        <Button x:Name="buttonDimensionar" Grid.Column="2" Content="Dimensionar" Margin="10,10,10,10" Grid.Row="4" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Dimensionar os circuitos elétricos"/>
+        <Button x:Name="buttonDimensionar" Grid.Column="2" Content="Dimensionar" Margin="10,10,10,10" Grid.Row="4" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Dimensionar os circuitos elétricos" Click="buttonDimensionar_Click"/>
         <Button x:Name="buttonCadastrarComodo" Grid.Column="2" Content="Comodo" Margin="10,10,10,10" Grid.Row="3" FontSize="14" FontWeight="SemiBold" Cursor="Hand" IsCancel="True" ToolTip="Cadastrar comodo, por exemplo: cozinha, lavanderia, etc..." Click="buttonCadastrarComodo_Click" />
     </Grid>
 </Window>

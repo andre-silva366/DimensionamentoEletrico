@@ -11,18 +11,18 @@
 
   <ItemGroup>
     <None Remove="th.jpeg" />
-    <None Remove="Views\Insert\ambiente.png" />
-    <None Remove="Views\Insert\cozinha.png" />
-    <None Remove="Views\Insert\eqpamentos.webp" />
-    <None Remove="Views\Insert\equipamento.png" />
+    <None Remove="Views\Windows\ambiente.png" />
+    <None Remove="Views\Windows\cozinha.png" />
+    <None Remove="Views\Windows\dimensionamento.png" />
+    <None Remove="Views\Windows\equipamento.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="th.jpeg" />
-    <Resource Include="Views\Insert\ambiente.png" />
-    <Resource Include="Views\Insert\cozinha.png" />
-    <Resource Include="Views\Insert\eqpamentos.webp" />
-    <Resource Include="Views\Insert\equipamento.png" />
+    <Resource Include="Views\Images\ambiente.png" />
+    <Resource Include="Views\Images\cozinha.png" />
+    <Resource Include="Views\Images\equipamento.png" />
+    <Resource Include="Views\Windows\dimensionamento.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using System.Windows;
-using DimensionamentoEletrico.Views.Insert;
+using DimensionamentoEletrico.Views.Windows;
 
 namespace DimensionamentoEletrico.Repositories.Implements;
 

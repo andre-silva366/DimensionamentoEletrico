@@ -1,4 +1,4 @@
-﻿using DimensionamentoEletrico.Views.Insert;
+﻿using DimensionamentoEletrico.Views.Windows;
 using System.Windows;
 
 namespace DimensionamentoEletrico;
@@ -30,5 +30,11 @@ public partial class MainWindow : Window
     {
         CadastroComodo cadastroComodo = new();
         cadastroComodo.ShowDialog();
+    }
+
+    private void buttonDimensionar_Click(object sender, RoutedEventArgs e)
+    {
+        Dimensionamento dimensionamento = new();
+        dimensionamento.ShowDialog();
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using DimensionamentoEletrico.Models;
 using DimensionamentoEletrico.Repositories.Interfaces;
-using DimensionamentoEletrico.Views.Insert;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Windows;

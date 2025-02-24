@@ -3,7 +3,7 @@ using DimensionamentoEletrico.Repositories.Implements;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DimensionamentoEletrico.Views.Insert
+namespace DimensionamentoEletrico.Views.Windows
 {
     /// <summary>
     /// Lógica interna para CadastroComodo.xaml
