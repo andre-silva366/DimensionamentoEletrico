@@ -7,4 +7,5 @@ interface IRepository<T> where T : class
     void Delete(string name);
     IEnumerable<T> GetAll();
     T GetByName(string name);
+    T GetById(int id);
 }

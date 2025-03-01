@@ -88,6 +88,11 @@ class ComodoRepository : IRepository<Comodo>
         }
     }
 
+    public Comodo GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public Comodo GetByName(string nome)
     {
         try

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DimensionamentoEletrico.Views.Windows"
         mc:Ignorable="d"
-        Title="Dimensionamento" Height="400" Width="540">
+        Title="Dimensionamento" Height="600" Width="740">
     <Grid >
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="/Views/Windows/dimensionamento.png"/>
@@ -26,13 +26,21 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
         <ComboBox x:Name="comboBoxDimensionamentoAmbiente" Grid.Column="2" Margin="10,10,10,10" Grid.Row="2" FontSize="14" FontWeight="SemiBold" Cursor="Hand" ToolTip="Selecione um ambiente." />
-        <Label Grid.Column="2" Content="Selecione o ambiente" Margin="10,10" Grid.Row="1" Padding="5" FontSize="14" Foreground="Black" OpacityMask="#FF8E7878" Background="#FFD8D6D6" HorizontalContentAlignment="Center"/>        
-        <Button x:Name="buttonSalvaAmbienteComodoDimensionamento" Grid.Column="2" Grid.Row="5" Margin="10" Content="Salvar" FontSize="14" HorizontalContentAlignment="Center" Cursor="Hand" ToolTip="Clique para salvar o "  />
-        <Label Grid.Column="2" Content="Nome do projeto" Margin="10" Grid.Row="3" Padding="5" FontSize="14" Background="#FFD8D6D6" ToolTip="Dê um nome para o projeto, exemplo: Casa do Zacarias..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="2" Content="Selecione o ambiente" Margin="10,10" Grid.Row="1" Padding="5" FontSize="14" Foreground="Black" OpacityMask="#FF8E7878" Background="#FFD8D6D6" HorizontalContentAlignment="Center"/>
+        
         <TextBox x:Name="textBoxNomeProjeto" Grid.Row="4" Grid.Column="2" Margin="10" FontSize="14" Background="#FFD8D6D6"></TextBox>
+        <Button x:Name="buttonSalvaAmbienteComodoDimensionamento" Grid.Column="2" Grid.Row="9" Margin="10" Content="Salvar" FontSize="14" HorizontalContentAlignment="Center" Cursor="Hand" ToolTip="Clique para salvar o " Click="buttonSalvaAmbienteComodoDimensionamento_Click"  />
+        <Label Grid.Column="2" Content="Nome do projeto" Margin="10" Grid.Row="3" Padding="5" FontSize="14" Background="#FFD8D6D6" ToolTip="Dê um nome para o projeto, exemplo: Casa do Zacarias..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBoxNomeCircuito" Grid.Row="7" Grid.Column="2" Margin="10" FontSize="14" Background="#FFD8D6D6"></TextBox>
+        <Label Grid.Column="2" Content="Nome do circuito" Margin="10" Grid.Row="6" Padding="5" FontSize="14" Background="#FFD8D6D6" ToolTip="Dê um nome para o projeto, exemplo: Casa do Zacarias..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="comboBoxCircuitoExistente" Grid.Row="7" Grid.Column="2" Margin="10" FontSize="14" Background="#FFD8D6D6" Visibility="Hidden" Cursor=""></ComboBox>
+        <RadioButton x:Name="radioButtonNovoCircuito" ToolTip="Selecione para criar um novo circuito" GroupName="circuito" Content="Novo circuito" Grid.Column="2" Grid.Row="5" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Background="#FFD8D6D6" BorderBrush="#FFD8D6D6" Foreground="#FFC71919" ></RadioButton>
+        <RadioButton x:Name="radioButtonCircuitoExistente" ToolTip="Selecione para adicionar o equipamento a um circuito existente" GroupName="circuito" Content="Circuito existente" Grid.Column="2" Grid.Row="5" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Background="#FFD8D6D6" BorderBrush="#FFD8D6D6" Foreground="#FF0B5FE6" ></RadioButton>
     </Grid>
 </Window>

@@ -99,6 +99,11 @@ class EquipamentoRepository : IRepository<Equipamento>
         }
     }
 
+    public Equipamento GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public Equipamento GetByName(string nome)
     {
         try

@@ -122,7 +122,7 @@ class AmbienteRepository : IRepository<Ambiente>
     {
         try
         {
-            string query = "SELECT Nome FROM Ambiente WHERE Nome = @Nome";
+            string query = "SELECT * FROM Ambiente WHERE Nome = @Nome";
             _connection.Open();
             var parameter = new { Nome = nome };
             return _connection.QueryFirst<Ambiente>(query, parameter);
@@ -138,5 +138,8 @@ class AmbienteRepository : IRepository<Ambiente>
         }
     }
 
-    
+    public Ambiente GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
 }
